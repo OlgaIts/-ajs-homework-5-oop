@@ -19,3 +19,5 @@ jobs:
         run: npm run lint
       - name: testing
         run: npm run test
+      - name: coverage
+        run: npm run coverage

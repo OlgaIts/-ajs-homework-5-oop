@@ -25,6 +25,15 @@ describe('класс Undead', () => {
     expect(() => new Undead(123)).toThrowError('Неверное имя');
   });
 
+  test('Проверка типа - по умолчанию', () => {
+    const undead = new Undead('Тихоходка', 'Undead');
+    expect(undead.type).toBe('Undead');
+  });
+
+  test('Проверка типа - ошибка', () => {
+    expect(() => new Undead('Тихоходка', 123)).toThrowError('Неверный тип');
+  });
+
   test('Проверка метода levelUp() - по умолчанию', () => {
     const undead = new Undead('Тихоходка');
     undead.levelUp();

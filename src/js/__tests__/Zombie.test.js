@@ -25,6 +25,15 @@ describe('класс Zombie', () => {
     expect(() => new Zombie(123)).toThrowError('Неверное имя');
   });
 
+  test('Проверка типа - по умолчанию', () => {
+    const zombie = new Zombie('Карл', 'Zombie');
+    expect(zombie.type).toBe('Zombie');
+  });
+
+  test('Проверка типа - ошибка', () => {
+    expect(() => new Zombie('Карл', 123)).toThrowError('Неверный тип');
+  });
+
   test('Проверка метода levelUp() - по умолчанию', () => {
     const zombie = new Zombie('Карл');
     zombie.levelUp();

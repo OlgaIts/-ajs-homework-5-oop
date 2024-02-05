@@ -25,6 +25,15 @@ describe('класс Bowerman', () => {
     expect(() => new Bowerman(123)).toThrowError('Неверное имя');
   });
 
+  test('Проверка типа - по умолчанию', () => {
+    const bowerman = new Bowerman('Леший', 'Bowerman');
+    expect(bowerman.type).toBe('Bowerman');
+  });
+
+  test('Проверка типа - ошибка', () => {
+    expect(() => new Bowerman('Леший', 123)).toThrowError('Неверный тип');
+  });
+
   test('Проверка метода levelUp() - по умолчанию', () => {
     const bowerman = new Bowerman('Леший');
     bowerman.levelUp();

@@ -6,8 +6,13 @@ export default class Character {
     if (typeof name !== 'string') {
       throw new Error('Неверное имя');
     }
+    if (typeof type !== 'string') {
+      throw new Error('Неверный тип');
+    }
     this.name = name;
     this.type = type;
+    this.health = 100;
+    this.level = 1;
   }
 
   levelUp() {

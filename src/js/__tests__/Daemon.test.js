@@ -25,6 +25,15 @@ describe('класс Daemon', () => {
     expect(() => new Daemon(123)).toThrowError('Неверное имя');
   });
 
+  test('Проверка типа - по умолчанию', () => {
+    const daemon = new Daemon('Страшный', 'Daemon');
+    expect(daemon.type).toBe('Daemon');
+  });
+
+  test('Проверка типа - ошибка', () => {
+    expect(() => new Daemon('Леший', 123)).toThrowError('Неверный тип');
+  });
+
   test('Проверка метода levelUp() - по умолчанию', () => {
     const daemon = new Daemon('Страшный');
     daemon.levelUp();

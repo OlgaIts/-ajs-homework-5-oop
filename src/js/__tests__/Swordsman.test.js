@@ -25,6 +25,15 @@ describe('класс Swordsman', () => {
     expect(() => new Swordsman(123)).toThrowError('Неверное имя');
   });
 
+  test('Проверка типа - по умолчанию', () => {
+    const swordsman = new Swordsman('Финист', 'Swordsman');
+    expect(swordsman.type).toBe('Swordsman');
+  });
+
+  test('Проверка типа - ошибка', () => {
+    expect(() => new Swordsman('Финист', 123)).toThrowError('Неверный тип');
+  });
+
   test('Проверка метода levelUp() - по умолчанию', () => {
     const swordsman = new Swordsman('Финист');
     swordsman.levelUp();
