@@ -1,16 +1,22 @@
 export default class Character {
   constructor(name, type) {
+    const types = ['Bowerman', 'Daemon', 'Magician', 'Swordsman', 'Undead', 'Zombie'];
+
     if (name.length < 2 || name.length > 10) {
       throw new Error('Минимальное кол-во символов 2, максимальное 10');
     }
+
     if (typeof name !== 'string') {
       throw new Error('Неверное имя');
     }
-    if (typeof type !== 'string') {
+
+    if (types.includes(type)) {
+      this.type = type;
+    } else {
       throw new Error('Неверный тип');
     }
+
     this.name = name;
-    this.type = type;
     this.health = 100;
     this.level = 1;
   }

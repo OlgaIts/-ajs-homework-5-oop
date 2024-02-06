@@ -26,12 +26,17 @@ describe('класс Daemon', () => {
   });
 
   test('Проверка типа - по умолчанию', () => {
+    const daemon = new Daemon('Страшный');
+    expect(daemon.type).toBe('Daemon');
+  });
+
+  test('Проверка типа - с указанием типа', () => {
     const daemon = new Daemon('Страшный', 'Daemon');
     expect(daemon.type).toBe('Daemon');
   });
 
   test('Проверка типа - ошибка', () => {
-    expect(() => new Daemon('Леший', 123)).toThrowError('Неверный тип');
+    expect(() => new Daemon('Страшный', 'Dragon')).toThrowError('Неверный тип');
   });
 
   test('Проверка метода levelUp() - по умолчанию', () => {

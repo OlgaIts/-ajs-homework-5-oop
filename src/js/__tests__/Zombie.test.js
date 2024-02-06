@@ -26,12 +26,17 @@ describe('класс Zombie', () => {
   });
 
   test('Проверка типа - по умолчанию', () => {
+    const zombie = new Zombie('Карл');
+    expect(zombie.type).toBe('Zombie');
+  });
+
+  test('Проверка типа - с указанием типа', () => {
     const zombie = new Zombie('Карл', 'Zombie');
     expect(zombie.type).toBe('Zombie');
   });
 
   test('Проверка типа - ошибка', () => {
-    expect(() => new Zombie('Карл', 123)).toThrowError('Неверный тип');
+    expect(() => new Zombie('Карл', 'Dragon')).toThrowError('Неверный тип');
   });
 
   test('Проверка метода levelUp() - по умолчанию', () => {

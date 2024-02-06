@@ -26,12 +26,17 @@ describe('класс Magician', () => {
   });
 
   test('Проверка типа - по умолчанию', () => {
+    const magician = new Magician('Мерлин');
+    expect(magician.type).toBe('Magician');
+  });
+
+  test('Проверка типа - с указанием типа', () => {
     const magician = new Magician('Мерлин', 'Magician');
     expect(magician.type).toBe('Magician');
   });
 
   test('Проверка типа - ошибка', () => {
-    expect(() => new Magician('Мерлин', 123)).toThrowError('Неверный тип');
+    expect(() => new Magician('Мерлин', 'Dragon')).toThrowError('Неверный тип');
   });
 
   test('Проверка метода levelUp() - по умолчанию', () => {

@@ -26,12 +26,17 @@ describe('класс Bowerman', () => {
   });
 
   test('Проверка типа - по умолчанию', () => {
+    const bowerman = new Bowerman('Леший');
+    expect(bowerman.type).toBe('Bowerman');
+  });
+
+  test('Проверка типа - с указанием типа', () => {
     const bowerman = new Bowerman('Леший', 'Bowerman');
     expect(bowerman.type).toBe('Bowerman');
   });
 
   test('Проверка типа - ошибка', () => {
-    expect(() => new Bowerman('Леший', 123)).toThrowError('Неверный тип');
+    expect(() => new Bowerman('Леший', 'Dragon')).toThrowError('Неверный тип');
   });
 
   test('Проверка метода levelUp() - по умолчанию', () => {
